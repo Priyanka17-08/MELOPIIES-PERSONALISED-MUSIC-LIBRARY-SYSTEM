@@ -1,70 +1,213 @@
-# Getting Started with Create React App
+# 🎵 Melopiies — Music Library Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack music library app built with **Node.js + Express + MySQL + React**.
 
-## Available Scripts
+![Melopiies](https://img.shields.io/badge/Music-Library-purple?style=for-the-badge)
+![React](https://img.shields.io/badge/React-18-blue?style=for-the-badge)
+![Node.js](https://img.shields.io/badge/Node.js-18-green?style=for-the-badge)
+![MySQL](https://img.shields.io/badge/MySQL-8-orange?style=for-the-badge)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📸 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 🎵 Browse all tracks with play/pause functionality
+- ❤️ Add songs to favorites
+- 🎧 Create and manage playlists
+- 🔍 Search songs by title, artist or genre
+- 📊 Dashboard with top liked tracks and most active artists
+- ▶️ YouTube integration — play any song on YouTube
+- ➕ Admin can add new tracks
+- 🔐 JWT authentication with bcrypt password hashing
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Backend
+- Node.js + Express.js
+- MySQL (database)
+- JWT (authentication)
+- bcrypt (password hashing)
+- Swagger (API documentation)
 
-### `npm run build`
+### Frontend
+- React 18
+- React Router DOM
+- Axios
+- Custom CSS with animations
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📁 Project Structure
+melopiies/
+├── backend/
+│   ├── config/
+│   │   ├── db.js
+│   │   ├── schema.sql
+│   │   └── seed.sql
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   ├── artistController.js
+│   │   ├── albumController.js
+│   │   ├── trackController.js
+│   │   ├── playlistController.js
+│   │   ├── favoriteController.js
+│   │   ├── searchController.js
+│   │   └── analyticsController.js
+│   ├── middleware/
+│   │   ├── auth.js
+│   │   └── errorHandler.js
+│   ├── routes/
+│   │   ├── auth.js
+│   │   ├── artists.js
+│   │   ├── tracks.js
+│   │   └── misc.js
+│   ├── utils/
+│   │   └── swagger.js
+│   ├── server.js
+│   └── .env.example
+└── frontend/
+├── public/
+│   └── index.html
+└── src/
+├── components/
+│   ├── Layout.js
+│   └── TrackCard.js
+├── context/
+│   └── AuthContext.js
+├── pages/
+│   ├── DashboardPage.js
+│   ├── TracksPage.js
+│   ├── FavoritesPage.js
+│   ├── PlaylistsPage.js
+│   ├── SearchPage.js
+│   ├── AddTrackPage.js
+│   ├── LoginPage.js
+│   └── RegisterPage.js
+├── services/
+│   └── api.js
+├── App.js
+└── App.css
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🚀 Setup & Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Prerequisites
+- Node.js v18+
+- MySQL 8+
+- Git
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 1. Clone the repository
+```bash
+git clone https://github.com/YOUR_USERNAME/melopiies-music-app.git
+cd melopiies-music-app
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 2. Database Setup
+Open MySQL Workbench and run:
+```sql
+source backend/config/schema.sql
+source backend/config/seed.sql
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 3. Backend Setup
+```bash
+cd backend
+cp .env.example .env
+# Edit .env and set your DB_PASSWORD and JWT_SECRET
+npm install
+npm run dev
+```
 
-## Learn More
+Backend runs at: `http://localhost:5000`
+API Docs: `http://localhost:5000/api/docs`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 4. Frontend Setup
+```bash
+cd frontend
+npm install
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Frontend runs at: `http://localhost:3000`
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🔑 Demo Credentials
 
-### Analyzing the Bundle Size
+| Role  | Email | Password |
+|-------|-------|----------|
+| Admin | admin@musiclib.com | priya |
+| User  | demo@musiclib.com  | priya |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 🌐 API Endpoints
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Auth
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | /api/auth/signup | Register |
+| POST | /api/auth/login  | Login |
+| GET  | /api/auth/me     | Get profile |
 
-### Advanced Configuration
+### Tracks
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET    | /api/tracks          | Get all tracks |
+| GET    | /api/tracks/:id      | Get one track |
+| POST   | /api/tracks          | Add track (admin) |
+| PUT    | /api/tracks/:id      | Update track (admin) |
+| DELETE | /api/tracks/:id      | Delete track (admin) |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Playlists
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET    | /api/playlists | Get playlists |
+| POST   | /api/playlists | Create playlist |
+| POST   | /api/playlists/:id/tracks | Add track |
+| DELETE | /api/playlists/:id/tracks/:trackId | Remove track |
 
-### Deployment
+### Favorites
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET    | /api/favorites | Get favorites |
+| POST   | /api/favorites/:trackId | Add favorite |
+| DELETE | /api/favorites/:trackId | Remove favorite |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Search
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET    | /api/search?q=&type= | Search tracks |
 
-### `npm run build` fails to minify
+### Analytics
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /api/analytics/top-tracks | Top liked tracks |
+| GET | /api/analytics/most-active-artists | Most active artists |
+| GET | /api/analytics/genre-preferences | User genre preferences |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## 🔒 Security Features
+
+- JWT authentication with 7 day expiry
+- bcrypt password hashing (10 rounds)
+- Helmet.js security headers
+- CORS protection
+- Rate limiting (200 requests / 15 min)
+- Role based access control (user / admin)
+
+---
+
+## 👩‍💻 Developer
+
+Built with love by **Priyanka** 🎵
+
+---
+
+## 📄 License
+
+MIT License — free to use and modify
