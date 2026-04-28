@@ -205,7 +205,7 @@ Frontend runs at: `http://localhost:3000`
 
 ## 👩‍💻 Developer
 
-Built with love by **Priyanka** 🎵
+**Priyanka** **Radhika**  **Khushi**
 
 ---
 
